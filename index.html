@@ -370,6 +370,15 @@
 </footer>
 
 <script>
+// Demo mode — all internal links disabled
+document.querySelectorAll('a[href]').forEach(function(a){
+  var h=a.getAttribute('href');
+  if(h&&(h.endsWith('.html')||h.includes('.html#'))){
+    a.addEventListener('click',function(e){e.preventDefault();});
+    a.style.cursor='default';
+  }
+});
+
 (function(){
   var btn=document.querySelector('.nav__hamburger');
   var drawer=document.getElementById('mobile-nav');
